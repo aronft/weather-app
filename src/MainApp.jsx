@@ -4,7 +4,6 @@ import './sass/index.scss'
 export const MainApp = () => {
   return (
     <div>
-
     </div>
   );
 };
