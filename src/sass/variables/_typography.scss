@@ -1,1 +1,16 @@
 $main-font: 'Raleway', sans-serif;
+
+
+$_base-font: 16;
+
+$_fs-14: calc( 16 / $_base-font) * 1rem;
+$_fs-16: calc( 16 / $_base-font) * 1rem;
+$_fs-18: calc( 18 / $_base-font) * 1rem;
+$_fs-36: calc( 36 / $_base-font) * 1rem;
+$_fs-48: calc( 48 / $_base-font) * 1rem;
+
+$fs-xs: $_fs-14;
+$fs-s: $_fs-16;
+$fs-m: $_fs-18;
+$fs-l: $_fs-36;
+$fs-xl: $_fs-48;
