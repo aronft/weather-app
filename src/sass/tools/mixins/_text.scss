@@ -1,4 +1,8 @@
 
-@mixin text($size) {
+@mixin text-size($size) {
     font-size: $size;
+}
+
+@mixin text-color($color) {
+    color: $color;
 }
