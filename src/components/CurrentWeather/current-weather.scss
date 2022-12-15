@@ -1,0 +1,60 @@
+@use '../../sass/settings/variables';
+
+.current-weather {
+  background: linear-gradient(variables.$primary-color-alt, variables.$primary-color-alt),
+  url("../../assets/images/Cloud-background.png") top no-repeat;
+  height: 100%;
+  position: relative;
+  max-width: 460px;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: space-between;
+
+  padding-left: variables.$space-xs;
+  padding-right: variables.$space-xs;
+  padding-top: variables.$space-s;
+
+  > * {
+    width: 100%;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__body p:nth-child(2){
+    margin-bottom: variables.$space-s;
+  }
+
+  &__body, &__footer {
+    text-align: center;
+  }
+
+
+  &__footer {
+    margin-bottom: 100px;
+  }
+
+  &__footer p {
+    margin-bottom: variables.$space-l;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 18px;
+  }
+
+  &__location svg {
+    margin-right: variables.$space-s;
+  }
+
+  .period {
+    width: 0.3em;
+    height: 0.3em;
+    border-radius: 50%;
+    background: variables.$gray-dark;
+    display: inline-block;
+  }
+}
