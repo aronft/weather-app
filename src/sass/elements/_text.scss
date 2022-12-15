@@ -3,11 +3,17 @@
 
 p {
   font-size: variables.$fs-m;
+  margin: 0;
 }
 
 @each $name, $size in variables.$font-sizes {
   .text-#{$name} {
-    @include mixins.text($size);
+    @include mixins.text-size($size);
+  }
+}
+@each $name, $color in variables.$theme-color {
+  .text-#{$name} {
+    @include mixins.text-color($color);
   }
 }
 
