@@ -1,6 +1,7 @@
 
 
 $primary-color: hsla(234, 32%, 17%, 1);
+$primary-color-alt: hsla(234, 32%, 17%, 0.95);
 $primary-dark-color:  hsla(248, 35%, 8%, 1);
 
 $secondary-color: hsla(236, 80%, 57%, 1);
@@ -12,3 +13,10 @@ $gray-light: hsla(240, 9%, 91%, 1);
 $gray: hsla(243, 10%, 66%, 1);
 $gray-dark: hsla(245, 11%, 57%, 1);
 $gray-darken: hsla(230, 5%, 45%, 1);
+
+$theme-color: (
+  'gray-light': $gray-light,
+  'gray': $gray,
+  'gray-dark': $gray-dark,
+  'gray-darken': $gray-darken,
+)
