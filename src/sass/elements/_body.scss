@@ -1,0 +1,11 @@
+@use '../settings/variables';
+
+body,html, #root {
+  height: 100%;
+}
+
+body {
+  background-color: variables.$primary-dark-color;
+  color: variables.$gray-light;
+  font-family: variables.$main-font;
+}
