@@ -1,0 +1,28 @@
+@use '../../sass/settings/variables';
+@use '../../sass/tools/mixins';
+
+
+.btn {
+  background-color: transparent;
+  border: none;
+  padding: variables.$space-xs variables.$space-s;
+}
+
+.btn--icon {
+  padding: variables.$space-xs;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+
+  svg {
+    width: 22px;
+    height: 22px;
+  }
+}
+
+@each $name, $color in variables.$theme-color  {
+  .btn-#{$name} {
+    @include mixins.button($color);
+  }
+}
+
