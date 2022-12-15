@@ -1,0 +1,13 @@
+@use '../settings/variables';
+@use '../tools/mixins';
+
+p {
+  font-size: variables.$fs-m;
+}
+
+@each $name, $size in variables.$font-sizes {
+  .text-#{$name} {
+    @include mixins.text($size);
+  }
+}
+
