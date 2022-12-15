@@ -34,7 +34,12 @@ const rulesForCss = {
   ],
 }
 
-const rules = [rulesForCss, rulesForJavascript, rulesForHtml]
+const rulesForAssets = {
+  test: /\.(png|svg|jpg|jpeg|gif)$/i,
+  type: 'asset/resource',
+}
+
+const rules = [rulesForCss, rulesForJavascript, rulesForHtml, rulesForAssets]
 
 module.exports = {
   entry: path.resolve(__dirname, './src/index.js'),
@@ -58,5 +63,5 @@ module.exports = {
     compress: true,
     port: 3000,
   },
-  devtool: 'source-map'
+  devtool: 'source-map',
 };
