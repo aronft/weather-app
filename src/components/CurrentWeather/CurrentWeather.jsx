@@ -1,7 +1,8 @@
 import React from 'react';
-import './current-weather.scss'
+import './_current-weather.scss'
 import shower from '../../assets/images/Shower.png'
 import { Button } from '../Button/Button'
+import { WeatherImage } from '../WeatherImage/WeatherImage'
 
 export const CurrentWeather = () => {
   return (
@@ -14,8 +15,7 @@ export const CurrentWeather = () => {
       </header>
 
       <div className="current-weather__body">
-        <img src={shower}
-             alt=""/>
+        <WeatherImage />
         <p className={'text-xl'}>15<span className={'text-l text-gray'}>°C</span></p>
         <p className={'text-gray text-l'}>shower</p>
       </div>

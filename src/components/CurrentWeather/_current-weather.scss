@@ -23,6 +23,14 @@
   &__header {
     display: flex;
     justify-content: space-between;
+    margin-bottom: variables.$space-l;
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: variables.$space-l;
   }
 
   &__body p:nth-child(2){
