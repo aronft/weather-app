@@ -4,6 +4,7 @@
 .current-weather {
   background: linear-gradient(variables.$primary-color-alt, variables.$primary-color-alt),
   url("../../assets/images/Cloud-background.png") top no-repeat;
+  background-position: top 100px center;
   height: 100%;
   min-height: 100vh;
   position: relative;
@@ -42,6 +43,15 @@
 
   &__body p:nth-child(2){
     margin-bottom: variables.$space-s;
+    @include mixins.media-query('l') {
+      margin-bottom: variables.$space-xxl;
+    }
+  }
+
+  &__body *:nth-child(1) {
+    @include mixins.media-query('l') {
+      margin-bottom: variables.$space-xl;
+    }
   }
 
   &__body, &__footer {
@@ -50,7 +60,11 @@
 
 
   &__footer {
-    margin-bottom: 100px;
+    margin-bottom: variables.$space-xxl;
+
+    @include mixins.media-query('l') {
+      margin-bottom: variables.$space-m;
+    }
   }
 
   &__footer p {

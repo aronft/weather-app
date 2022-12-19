@@ -4,7 +4,7 @@
 .forecast {
   width: 100%;
   padding: variables.$space-xl variables.$space-m;
-
+  background-color: variables.$primary-dark-color;
   @include mixins.media-query('l') {
     padding-left: 154px;
     padding-right: 154px;
