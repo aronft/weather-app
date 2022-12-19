@@ -1,9 +1,20 @@
 @use '../../sass/settings/variables';
+@use '../../sass/tools/mixins';
+
 .current-highlights {
   display: flex;
   flex-direction: column;
-  row-gap: variables.$space-l;
+  gap: variables.$space-l;
   svg {
     transform: rotate(174deg);
   }
+
+  @include mixins.media-query('l') {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    > * {
+      width: calc(100% / 2 - variables.$space-l);
+    }
+  };
 }

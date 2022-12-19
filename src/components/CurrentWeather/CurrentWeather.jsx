@@ -1,6 +1,5 @@
 import React from 'react';
 import './_current-weather.scss'
-import shower from '../../assets/images/Shower.png'
 import { Button } from '../Button/Button'
 import { WeatherImage } from '../WeatherImage/WeatherImage'
 

@@ -1,0 +1,10 @@
+@use "../../settings/variables";
+@mixin media-query($name-size) {
+    @each $name, $size-query in variables.$queries {
+        @if($name == $name-size) {
+            @media screen and (min-width: $size-query) {
+                @content;
+            }
+        }
+    }
+}

@@ -1,9 +1,11 @@
 @use '../../sass/settings/variables';
+@use '../../sass/tools/mixins';
 
 .current-weather {
   background: linear-gradient(variables.$primary-color-alt, variables.$primary-color-alt),
   url("../../assets/images/Cloud-background.png") top no-repeat;
   height: 100%;
+  min-height: 100vh;
   position: relative;
   max-width: 460px;
 
@@ -15,6 +17,11 @@
   padding-left: variables.$space-xs;
   padding-right: variables.$space-xs;
   padding-top: variables.$space-s;
+
+  @include mixins.media-query('l') {
+    height: auto;
+    padding: variables.$space-xl;
+  }
 
   > * {
     width: 100%;

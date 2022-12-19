@@ -1,0 +1,11 @@
+@use './sass/tools/mixins';
+
+.main-app {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  @include mixins.media-query('l') {
+    flex-direction: row;
+  }
+}

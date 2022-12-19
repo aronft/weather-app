@@ -1,9 +1,8 @@
 import React, { useEffect } from 'react';
 import './sass/index.scss'
 import { CurrentWeather } from './components/CurrentWeather/CurrentWeather'
-import { getWeather } from './services/getWeather'
 import { ForeCast } from './components/ForeCast/ForeCast'
-
+import './_main-app.scss'
 export const MainApp = () => {
   useEffect(() => {
     navigator.geolocation.getCurrentPosition( (position) => {
@@ -12,9 +11,9 @@ export const MainApp = () => {
     })
   }, [])
   return (
-    <>
+    <div className={'main-app'}>
       <CurrentWeather />
       <ForeCast />
-    </>
+    </div>
   );
 };

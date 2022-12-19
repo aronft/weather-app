@@ -1,7 +1,19 @@
 @use '../../sass/settings/variables';
+@use '../../sass/tools/mixins';
 
 .forecast {
+  width: 100%;
   padding: variables.$space-xl variables.$space-m;
+
+  @include mixins.media-query('l') {
+    padding-left: 154px;
+    padding-right: 154px;
+    padding-bottom: variables.$space-m;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
 
   &__header {
     margin-bottom: variables.$space-l;
