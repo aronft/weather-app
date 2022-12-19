@@ -1,5 +1,5 @@
 $main-font: 'Raleway', sans-serif;
-
+$secondary-font: 'Montserrat', sans-serif;
 
 $_base-font: 16;
 
@@ -7,17 +7,20 @@ $_fs-14: calc( 14 / $_base-font) * 1rem;
 $_fs-16: calc( 16 / $_base-font) * 1rem;
 $_fs-18: calc( 18 / $_base-font) * 1rem;
 $_fs-36: calc( 36 / $_base-font) * 1rem;
+$_fs-64: calc( 64 / $_base-font) * 1rem;
 $_fs-144: calc( 144 / $_base-font) * 1rem;
 
 $fs-xs: $_fs-14;
 $fs-s: $_fs-16;
 $fs-m: $_fs-18;
 $fs-l: $_fs-36;
+$fs-2l: $_fs-64;
 $fs-xl: $_fs-144;
 
 $font-sizes: (
   'xs': $fs-xs,
   's': $fs-s,
   'l': $fs-l,
+  '2l': $fs-2l,
   'xl': $fs-xl,
 )
