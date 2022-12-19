@@ -1,0 +1,23 @@
+@use '../../sass/settings/variables';
+.card {
+  background-color: variables.$primary-color;;
+  padding: variables.$space-m;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__title {
+    margin-bottom: variables.$space-xs;
+  }
+
+  &__body {
+    margin-bottom: variables.$space-s;
+  }
+
+  &__footer {
+    display: flex;
+    column-gap: variables.$space-s;
+  }
+
+}
