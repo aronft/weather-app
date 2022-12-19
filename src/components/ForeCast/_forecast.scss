@@ -1,0 +1,33 @@
+@use '../../sass/settings/variables';
+
+.forecast {
+  padding: variables.$space-xl variables.$space-m;
+
+  &__header {
+    margin-bottom: variables.$space-l;
+  }
+
+  &__options {
+    display: flex;
+    justify-content: flex-end;
+    column-gap: variables.$space-s;
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    row-gap: variables.$space-l;
+    margin-bottom: variables.$space-xl;
+  }
+
+  &__footer {
+    text-align: center;
+    font-family: variables.$secondary-font;
+    font-weight: 700;
+
+    p {
+      display: flex;
+      justify-content: center;
+    };
+  }
+}

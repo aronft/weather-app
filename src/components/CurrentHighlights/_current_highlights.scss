@@ -1,0 +1,9 @@
+@use '../../sass/settings/variables';
+.current-highlights {
+  display: flex;
+  flex-direction: column;
+  row-gap: variables.$space-l;
+  svg {
+    transform: rotate(174deg);
+  }
+}
