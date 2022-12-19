@@ -1,0 +1,14 @@
+@use '../../sass/settings/variables';
+
+.weather-list {
+  padding-left: variables.$space-l;
+  padding-right: variables.$space-l;
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: variables.$space-m;
+  row-gap: variables.$space-l;
+
+  > * {
+    width: calc(100% / 2 - variables.$space-m);
+  }
+}
