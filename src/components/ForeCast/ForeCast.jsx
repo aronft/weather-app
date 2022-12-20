@@ -10,8 +10,8 @@ export const ForeCast = () => {
     <section className={'forecast'}>
       <header className={'forecast__header'}>
         <div className="forecast__options">
-          <Button className={'btn btn--icon btn-gray-light text-primary-dark'}>°C</Button>
-          <Button className={'btn btn--icon btn-primary-light'}>°F</Button>
+          <Button className={'btn btn--icon btn-gray-light text-primary-dark wgh-700'}>°C</Button>
+          <Button className={'btn btn--icon btn-primary-light wgh-700'}>°F</Button>
         </div>
       </header>
 
@@ -20,7 +20,7 @@ export const ForeCast = () => {
         <h2 className={'text-m'}>Today's Highlights</h2>
         <CurrentHighlights />
       </div>
-      <footer className={'forecast__footer'}><p className={'text-gray'}>created by blazte - &nbsp;<a href="https://devchallenges.io/" className={'text-gray-light'}>devChallenge.io</a></p></footer>
+      <footer className={'forecast__footer'}><p className={'text-gray text-xs'}>created by blazte - &nbsp;<a href="https://devchallenges.io/" className={'text-gray-light'}>devChallenge.io</a></p></footer>
     </section>
   );
 };

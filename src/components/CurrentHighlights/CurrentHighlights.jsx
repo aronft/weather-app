@@ -14,16 +14,16 @@ export const CurrentHighlights = () => {
   return (
     <div className={'current-highlights'}>
       <Card title={'Wind status'} footer={footerCurrent}>
-        <p className={'text-2l'}>7<span className={'text-l'}>mph</span></p>
+        <p className={'text-2l wgh-700'}>7<span className={'text-l wgh-500'}>mph</span></p>
       </Card>
       <Card title={'Humidity'} footer={footerHumidity}>
-        <p className={'text-2l'}>84<span className={'text-l'}>%</span></p>
+        <p className={'text-2l wgh-700'}>84<span className={'text-l wgh-500'}>%</span></p>
       </Card>
       <Card title={'Visibility'} >
-        <p className={'text-2l'}>6,4 <span className={'text-l'}>miles</span></p>
+        <p className={'text-2l wgh-700'}>6,4 <span className={'text-l wgh-500'}>miles</span></p>
       </Card>
       <Card title={'Air Pressure'} >
-        <p className={'text-2l'}>998 <span className={'text-l'}>mb</span></p>
+        <p className={'text-2l wgh-700'}>998 <span className={'text-l wgh-500'}>mb</span></p>
       </Card>
     </div>
   );
