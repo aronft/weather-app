@@ -1,8 +1,8 @@
 import './sass/index.scss'
-import './_main-app.scss'
 
 import React, { useEffect } from 'react'
 
+import styles from './_main-app.module.scss'
 import { ForeCast } from './feauters/ForeCast/ForeCast'
 import { CurrentWeather } from './feauters/weather/components/CurrentWeather/CurrentWeather'
 export const MainApp = () => {
@@ -13,7 +13,7 @@ export const MainApp = () => {
         })
     }, [])
     return (
-        <div className={'main-app'}>
+        <div className={styles['main-app']}>
             <CurrentWeather />
             <ForeCast />
         </div>

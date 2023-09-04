@@ -1,4 +1,5 @@
-@use '../../sass/settings/variables';
+@use '@/sass/settings/variables';
+
 .card {
   background-color: variables.$primary-color;;
   padding: variables.$space-m;

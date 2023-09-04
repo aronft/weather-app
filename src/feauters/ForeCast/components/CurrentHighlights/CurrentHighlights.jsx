@@ -1,9 +1,9 @@
-import './_current_highlights.scss'
-
 import React from 'react'
 
 import { Button } from '@/components/Button/Button'
 import { Card } from '@/components/Card/Card'
+
+import styles from './_current_highlights.module.scss'
 
 export const CurrentHighlights = () => {
     const footerCurrent = (
@@ -16,7 +16,7 @@ export const CurrentHighlights = () => {
 
     const footerHumidity = <>barra</>
     return (
-        <div className={'current-highlights'}>
+        <div className={styles['current-highlights']}>
             <Card title={'Wind status'} footer={footerCurrent}>
                 <p className={'text-2l wgh-700'}>
                     7<span className={'text-l wgh-500'}>mph</span>
