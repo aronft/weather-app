@@ -1,5 +1,5 @@
-@use '../../sass/settings/variables';
-@use '../../sass/tools/mixins';
+@use '@/sass/settings/variables';
+@use '@/sass/tools/mixins';
 
 .weather-list {
   padding-left: variables.$space-l;

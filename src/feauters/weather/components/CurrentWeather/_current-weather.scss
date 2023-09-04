@@ -1,9 +1,9 @@
-@use '../../sass/settings/variables';
-@use '../../sass/tools/mixins';
+@use '@/sass/settings/variables';
+@use '@/sass/tools/mixins';
 
 .current-weather {
   background: linear-gradient(variables.$primary-color-alt, variables.$primary-color-alt),
-  url("../../assets/images/Cloud-background.png") top no-repeat;
+  url("@/assets/images/Cloud-background.png") top no-repeat;
   background-position: top 100px center;
   height: 100%;
   min-height: 100vh;

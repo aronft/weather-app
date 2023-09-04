@@ -3,8 +3,8 @@ import './_main-app.scss'
 
 import React, { useEffect } from 'react'
 
-import { CurrentWeather } from './components/CurrentWeather/CurrentWeather'
-import { ForeCast } from './components/ForeCast/ForeCast'
+import { ForeCast } from './feauters/ForeCast/ForeCast'
+import { CurrentWeather } from './feauters/weather/components/CurrentWeather/CurrentWeather'
 export const MainApp = () => {
     useEffect(() => {
         navigator.geolocation.getCurrentPosition((position) => {
