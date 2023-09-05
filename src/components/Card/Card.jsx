@@ -2,9 +2,9 @@ import React from 'react'
 
 import styles from './_card.module.scss'
 
-export const Card = ({ children, title, footer }) => {
+export const Card = ({ children, title, footer, className = '' }) => {
     return (
-        <div className={styles.card}>
+        <div className={`${styles.card} ${className}`}>
             <div className={styles.card__title}>
                 <p className={'text-s'}>{title}</p>
             </div>

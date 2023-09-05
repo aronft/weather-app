@@ -14,10 +14,10 @@ export const MainApp = () => {
         })
     }, [])
     return (
-        <div className={styles['main-app']}>
+        <main className={styles['main-app']}>
             <PlacesSidebar />
             <CurrentWeather />
             <ForeCast />
-        </div>
+        </main>
     )
 }

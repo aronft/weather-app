@@ -8,21 +8,21 @@
   height: 100%;
   min-height: 100vh;
   position: relative;
-  max-width: variables.$sidebarWidth;
-
-
+  width: 100%;
+  
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-content: space-between;
-
+  
   padding-left: variables.$space-xs;
   padding-right: variables.$space-xs;
   padding-top: variables.$space-s;
-
+  
   @include mixins.media-query('l') {
-    height: auto;
-    padding: variables.$space-xl;
+      max-width: variables.$sidebarWidth;
+      height: auto;
+      padding: variables.$space-xl;
   }
 
   > * {
