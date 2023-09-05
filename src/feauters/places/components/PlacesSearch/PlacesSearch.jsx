@@ -46,22 +46,29 @@ export const PlacesSearch = () => {
                 className={styles['places-search__form']}
                 onSubmit={handleSubmit(onSubmit)}
             >
-                <div className={styles['search-input-container']}>
-                    <input
-                        type="text"
-                        name="search"
-                        placeholder="search city"
-                        className={styles['search-input']}
-                        {...register('search')}
-                    />
-                    <i
-                        className={`${styles['search-input__icon']} fa-solid fa-magnifying-glass`}
-                    ></i>
+                <div>
+                    <div className={styles['search-input-container']}>
+                        <input
+                            type="text"
+                            name="search"
+                            placeholder="search city"
+                            className={`${styles['search-input']} ${
+                                errors.search?.message
+                                    ? styles['search-input--error']
+                                    : ''
+                            }`}
+                            {...register('search')}
+                        />
+                        <i
+                            className={`${styles['search-input__icon']} fa-solid fa-magnifying-glass`}
+                        ></i>
+                    </div>
                 </div>
                 <Button className={'btn btn-secondary text-gray-light'}>
                     Search{' '}
                 </Button>
             </form>
+            <p className="text-danger text-xs">{errors.search?.message}</p>
         </div>
     )
 }

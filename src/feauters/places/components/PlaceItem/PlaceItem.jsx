@@ -1,9 +1,9 @@
 import React from 'react'
 
 import styles from './_place-item.module.scss'
-export const PlaceItem = ({ name, countryCode }) => {
+export const PlaceItem = ({ name, countryCode, onClick }) => {
     return (
-        <div className={styles['place-item']}>
+        <div className={styles['place-item']} onClick={onClick}>
             <p>
                 {name}, {countryCode}
             </p>

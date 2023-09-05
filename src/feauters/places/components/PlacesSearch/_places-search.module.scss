@@ -3,11 +3,15 @@
 .places-search-container {
     display: flex;
     flex-direction: column;
+    & > * + * {
+        margin-top: 1rem;
+    }
 }
 
 .places-search__form {
     display: flex;
     justify-content: space-between;
+    // align-items: baseline;
     gap: variables.$space-xs; 
 }
 
@@ -26,6 +30,15 @@
     padding-left: calc(var(--icon-size) + var(--space-next-icon) + var(--space-left));
     background-color: transparent;
     border: 1px solid variables.$gray-light;
+
+    &--error {
+        border-color: variables.$danger-color;
+        &:focus {
+            outline: 1px solid variables.$danger-color;
+        }
+    }
+
+
 }
 
 .search-input__icon {

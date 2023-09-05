@@ -8,6 +8,7 @@ $primary-dark-color:  hsla(248, 35%, 8%, 1);
 $secondary-color: hsla(236, 80%, 57%, 1);
 
 $warning-color: hsla(53, 100%, 70%, 1);
+$danger-color: tomato;
 
 //text colors
 $gray-light: hsla(240, 9%, 91%, 1);
@@ -23,4 +24,5 @@ $theme-color: (
   'gray': $gray,
   'gray-dark': $gray-dark,
   'gray-darken': $gray-darken,
+  'danger': $danger-color,
 )
