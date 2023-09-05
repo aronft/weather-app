@@ -1,0 +1,45 @@
+@use '@/sass/settings/variables';
+
+.places-search-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.places-search__form {
+    display: flex;
+    justify-content: space-between;
+    gap: variables.$space-xs; 
+}
+
+.search-input-container {
+    position: relative;
+    --icon-size: 17px;
+    --space-left: 14px;
+    --space-next-icon: 13px;
+}
+
+
+.search-input {
+    width: 100%;
+    padding: var(--space-left);
+    color: variables.$gray-light;
+    padding-left: calc(var(--icon-size) + var(--space-next-icon) + var(--space-left));
+    background-color: transparent;
+    border: 1px solid variables.$gray-light;
+}
+
+.search-input__icon {
+    position: absolute;
+    left: 0;
+    margin-left: var(--space-left);
+    top: 0;
+    transform: translateY(100%);
+    width: var(--icon-size);
+    height: var(--icon-size);
+    color: variables.$gray-darken; 
+}
+
+
+.search-input::placeholder {
+    color: variables.$gray-darken;
+}

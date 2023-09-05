@@ -2,13 +2,18 @@ import React from 'react'
 
 import { Button } from '../../../../components/Button/Button'
 import { WeatherImage } from '../../../../components/WeatherImage/WeatherImage'
+import { usePlacesStore } from '../../../places/store/placesStore'
 import styles from './_current-weather.module.scss'
 
 export const CurrentWeather = () => {
+    const toggleSidbar = usePlacesStore((state) => state.toggleSidbar)
     return (
         <section className={styles['current-weather']}>
             <header className={styles['current-weather__header']}>
-                <Button className={'btn btn-gray text-gray-light'}>
+                <Button
+                    className={'btn btn-gray text-gray-light'}
+                    onClick={toggleSidbar}
+                >
                     Search for places
                 </Button>
                 <Button className={'btn btn--icon btn-gray text-gray-light'}>
