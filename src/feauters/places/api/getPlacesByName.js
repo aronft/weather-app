@@ -1,4 +1,4 @@
-import { getApiHeaders } from '../../../utils'
+import { getApiHeadersLocations } from '../utils/getApiHeadersLocations'
 
 export const getPlacebyName = async ({
     url,
@@ -9,7 +9,7 @@ export const getPlacebyName = async ({
     const data = await fetch(`${url}?${queryString}`, {
         method: 'GET',
         headers: {
-            ...getApiHeaders(),
+            ...getApiHeadersLocations(),
         },
     }).then((res) => res.json())
 
