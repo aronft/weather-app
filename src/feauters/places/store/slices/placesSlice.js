@@ -1,4 +1,6 @@
 export const createPlacesSlice = (set) => ({
     places: [],
-    addPlace: (place) => set((state) => ({ places: [...state.places, place] })),
+    actualPlace: null,
+    setPlaces: (places) => set((state) => ({ places })),
+    setActualPlace: (place) => set((state) => ({ actualPlace: place })),
 })

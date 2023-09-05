@@ -1,0 +1,22 @@
+@use '@/sass/settings/variables';
+
+.place-item  {
+    display: flex;
+    justify-content: space-between;
+
+    padding-block: variables.$space-m;
+    padding-inline: variables.$space-xs;
+    padding-inline-end: variables.$space-s;
+    text-transform: capitalize;
+
+    color: variables.$gray-light;
+    
+    &:hover {
+        border: 1px solid variables.$gray-darken;
+        cursor: pointer;
+    }
+
+    svg {
+        color: variables.$gray-darken;
+    }
+}

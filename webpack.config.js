@@ -1,3 +1,6 @@
+const webpack = require('webpack')
+const Dotenv = require('dotenv-webpack')
+
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const path = require('path')
 
@@ -39,7 +42,7 @@ const rulesForAssets = {
 
 const rules = [rulesForCss, rulesForJavascript, rulesForHtml, rulesForAssets]
 
-module.exports = {
+module.exports = (env) => ({
     entry: path.resolve(__dirname, './src/index.js'),
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -52,6 +55,12 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: 'src/index.html',
             filename: 'index.html',
+        }),
+        new Dotenv({
+            path: '.env',
+        }),
+        new webpack.DefinePlugin({
+            'process.env.NODE_ENV': JSON.stringify(env.NODE_ENV),
         }),
     ],
     devServer: {
@@ -67,4 +76,4 @@ module.exports = {
             '@': path.resolve(__dirname, 'src/'),
         },
     },
-}
+})

@@ -7,7 +7,7 @@ import { MainApp } from './MainApp'
 
 const root = createRoot(document.getElementById('root'))
 root.render(
-    <React.StrictMode>
-        <MainApp />
-    </React.StrictMode>
+    // <React.StrictMode>
+    <MainApp />
+    // </React.StrictMode>
 )

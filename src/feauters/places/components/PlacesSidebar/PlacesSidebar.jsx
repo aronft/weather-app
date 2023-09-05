@@ -9,6 +9,8 @@ import styles from './_places-sidebar.module.scss'
 export const PlacesSidebar = () => {
     const toggleSidbar = usePlacesStore((state) => state.toggleSidbar)
     const isOpenSidebar = usePlacesStore((state) => state.isOpenSidebar)
+    const places = usePlacesStore((state) => state.places)
+
     return (
         <aside
             className={`${styles.sidebar} ${
@@ -22,7 +24,7 @@ export const PlacesSidebar = () => {
                 <i className="fa-solid fa-xmark"></i>
             </Button>
             <PlacesSearch />
-            <PlacesList list={[]} />
+            <PlacesList list={places} />
         </aside>
     )
 }

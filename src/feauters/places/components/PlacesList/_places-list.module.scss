@@ -1,0 +1,7 @@
+@use '@/sass/settings/variables';
+
+.places-list {
+    display: flex;
+    flex-direction: column;
+    gap: variables.$space-m;
+}
