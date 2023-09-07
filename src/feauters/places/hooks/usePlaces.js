@@ -1,4 +1,5 @@
 import { getVariables } from '../../../utils'
+import { getPlaceByLocationApi } from '../api'
 import { getPlacebyName } from '../api/getPlacesByName'
 import { usePlacesStore } from '../store/placesStore'
 
@@ -25,11 +26,17 @@ export const usePlaces = () => {
         return data
     }
 
+    const getPlaceByLocation = async ({ latitude, longitude }) => {
+        const data = await getPlaceByLocationApi({ latitude, longitude })
+        setActualPlace(data)
+    }
+
     return {
         places,
         actualPlace,
         isLoading,
         getPlacesByName,
         setActualPlace,
+        getPlaceByLocation,
     }
 }

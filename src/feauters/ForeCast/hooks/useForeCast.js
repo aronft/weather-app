@@ -2,11 +2,12 @@ import { add, format } from 'date-fns'
 import { useEffect } from 'react'
 
 import { Metrics } from '../../../constants'
+import { usePlaces } from '../../places/hooks/usePlaces'
 import { getForecastApi } from '../api/getForecastApi'
 import { ForeCast } from '../models/foreCast'
 import { useForeCastStore } from '../store/foreCastStore'
 
-export const useForeCast = (actualPlace) => {
+export const useForeCast = () => {
     const forecasts = useForeCastStore((state) => state.forecasts)
     const startLoadnig = useForeCastStore((state) => state.startLoadnig)
     const endLoadnig = useForeCastStore((state) => state.endLoadnig)
@@ -14,6 +15,7 @@ export const useForeCast = (actualPlace) => {
     const forecastToday = useForeCastStore((state) => state.forecastToday)
     const setForecasts = useForeCastStore((state) => state.setForecasts)
     const setForecastToday = useForeCastStore((state) => state.setForecastToday)
+    const { setActualPlace } = usePlaces()
 
     const getForecast = async ({ latitude, longitude }) => {
         const startDate = new Date()
@@ -37,20 +39,16 @@ export const useForeCast = (actualPlace) => {
         return data
     }
 
-    useEffect(() => {
-        if (actualPlace === null || actualPlace === undefined) {
-            return
-        }
-        getForecast({
-            latitude: actualPlace.latitude,
-            longitude: actualPlace.longitude,
-        })
-    }, [actualPlace])
+    const setActualAndCall = (place) => {
+        setActualPlace(place)
+        getForecast({ latitude: place.latitude, longitude: place.longitude })
+    }
 
     return {
         getForecast,
         forecasts,
         forecastToday,
         isLoading,
+        setActualAndCall,
     }
 }

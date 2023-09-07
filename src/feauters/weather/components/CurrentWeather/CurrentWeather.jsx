@@ -5,6 +5,7 @@ import { WeatherImage } from '../../../../components/WeatherImage/WeatherImage'
 import { icons } from '../../../../constants'
 import { useForeCast } from '../../../ForeCast/hooks/useForeCast'
 import { getCurrentDayFormat } from '../../../ForeCast/utils/getFormatDate'
+import { usePlaces } from '../../../places/hooks/usePlaces'
 import { usePlacesStore } from '../../../places/store/placesStore'
 import styles from './_current-weather.module.scss'
 
@@ -12,11 +13,13 @@ export const CurrentWeather = () => {
     const { forecastToday, getForecast } = useForeCast()
     const toggleSidbar = usePlacesStore((state) => state.toggleSidbar)
     const actualPlace = usePlacesStore((state) => state.actualPlace)
+    const { getPlaceByLocation } = usePlaces()
 
     const getUbication = () => {
         navigator.geolocation.getCurrentPosition((position) => {
             const { latitude, longitude } = position.coords
             getForecast({ latitude, longitude })
+            getPlaceByLocation({ latitude, longitude })
         })
     }
     return (
@@ -61,7 +64,7 @@ export const CurrentWeather = () => {
                     className={`${styles['current-weather__location']} ${styles['text-gray-dark']} ${styles['wgh-600']}`}
                 >
                     <i className="fa-solid fa-location-dot" color=""></i>
-                    {actualPlace?.city}
+                    {actualPlace?.name}
                 </div>
             </footer>
         </section>
