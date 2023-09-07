@@ -5,7 +5,8 @@ import React from 'react'
 export const Button = ({ className, children, onClick, disabled }) => {
     return (
         <button
-            className={`${className} ${disabled ? 'btn--disabled' : ''}`}
+            disabled={disabled}
+            className={`${className}`}
             onClick={onClick}
         >
             {children}
