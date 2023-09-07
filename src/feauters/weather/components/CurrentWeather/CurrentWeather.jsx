@@ -3,25 +3,35 @@ import React from 'react'
 import { Button } from '../../../../components/Button/Button'
 import { WeatherImage } from '../../../../components/WeatherImage/WeatherImage'
 import { icons } from '../../../../constants'
-import { useForeCastStore } from '../../../ForeCast/store/foreCastStore'
+import { useForeCast } from '../../../ForeCast/hooks/useForeCast'
 import { getCurrentDayFormat } from '../../../ForeCast/utils/getFormatDate'
 import { usePlacesStore } from '../../../places/store/placesStore'
 import styles from './_current-weather.module.scss'
 
 export const CurrentWeather = () => {
+    const { forecastToday, getForecast } = useForeCast()
     const toggleSidbar = usePlacesStore((state) => state.toggleSidbar)
-    const forecastToday = useForeCastStore((state) => state.forecastToday)
     const actualPlace = usePlacesStore((state) => state.actualPlace)
+
+    const getUbication = () => {
+        navigator.geolocation.getCurrentPosition((position) => {
+            const { latitude, longitude } = position.coords
+            getForecast({ latitude, longitude }).then()
+        })
+    }
     return (
         <section className={styles['current-weather']}>
             <header className={styles['current-weather__header']}>
                 <Button
-                    className={'btn btn-gray text-gray-light'}
+                    className={'btn btn-gray-darken text-gray-light'}
                     onClick={toggleSidbar}
                 >
                     Search for places
                 </Button>
-                <Button className={'btn btn--icon btn-gray text-gray-light'}>
+                <Button
+                    className={'btn btn--icon btn-gray-darken text-gray-light'}
+                    onClick={getUbication}
+                >
                     <i className="fa-solid fa-location-crosshairs"></i>
                 </Button>
             </header>
@@ -50,10 +60,8 @@ export const CurrentWeather = () => {
                 <div
                     className={`${styles['current-weather__location']} ${styles['text-gray-dark']} ${styles['wgh-600']}`}
                 >
-                    <i
-                        className={`${styles['fa-solid']} ${styles['fa-location-dot']}`}
-                    ></i>
-                    Helsinki
+                    <i className="fa-solid fa-location-dot" color=""></i>
+                    {actualPlace?.city}
                 </div>
             </footer>
         </section>

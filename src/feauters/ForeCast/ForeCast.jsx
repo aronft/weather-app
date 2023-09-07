@@ -1,13 +1,16 @@
 import React from 'react'
 
 import { Button } from '../../components/Button/Button'
+import { usePlaces } from '../places/hooks/usePlaces'
 import styles from './_forecast.module.scss'
 import { CurrentHighlights } from './components/CurrentHighlights/CurrentHighlights'
 import { UpcommingWeather } from './components/UpcommingWeather/UpcommingWeather'
+import { useForeCast } from './hooks'
 import { ForeCast as ForeCastModel } from './models/foreCast'
 import { useForeCastStore } from './store/foreCastStore'
 export const ForeCast = () => {
-    const forecasts = useForeCastStore((state) => state.forecasts)
+    const { actualPlace } = usePlaces()
+    const { forecasts } = useForeCast(actualPlace)
     const forecastToday = useForeCastStore((state) => state.forecastToday)
     const foreCastTodayIndex = ForeCastModel.getTodayIndex(forecasts)
     const forecatsWithoutInitialDates = [...forecasts]

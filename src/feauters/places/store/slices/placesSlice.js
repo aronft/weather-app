@@ -1,3 +1,5 @@
+import { Place } from '../../../../constants'
+
 export const createPlacesSlice = (set) => ({
     places: [],
     actualPlace: null,

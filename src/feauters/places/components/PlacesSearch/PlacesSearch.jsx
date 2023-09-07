@@ -1,13 +1,10 @@
 import { yupResolver } from '@hookform/resolvers/yup'
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useForm } from 'react-hook-form'
-import useSWR from 'swr'
 import * as yup from 'yup'
 
 import { Button } from '../../../../components/Button/Button'
-import { getVariables } from '../../../../utils'
-import { getPlacebyName } from '../../api/getPlacesByName'
-import { usePlacesStore } from '../../store/placesStore'
+import { usePlaces } from '../../hooks/usePlaces'
 import styles from './_places-search.module.scss'
 
 const schema = yup
@@ -17,12 +14,7 @@ const schema = yup
     .required()
 
 export const PlacesSearch = () => {
-    const variables = getVariables()
-    const setPlaces = usePlacesStore((state) => state.setPlaces)
-    const isLoading = usePlacesStore((state) => state.isLoading)
-    const startLoading = usePlacesStore((state) => state.startLoadnig)
-    const endLoading = usePlacesStore((state) => state.endLoadnig)
-
+    const { isLoading, getPlacesByName } = usePlaces()
     const {
         register,
         handleSubmit,
@@ -35,18 +27,7 @@ export const PlacesSearch = () => {
         if (isLoading) {
             return
         }
-        startLoading()
-        getPlacebyName({
-            url: `${variables.API_GEODB_CITIES}/cities`,
-            params: { minPopulation: 1000000, namePrefix: 'lima' },
-        })
-            .then((data) => {
-                setPlaces(data)
-                setTimeout(() => {
-                    endLoading()
-                }, 500)
-            })
-            .catch(() => endLoading())
+        getPlacesByName({ search: data.search }).then()
     }
 
     return (

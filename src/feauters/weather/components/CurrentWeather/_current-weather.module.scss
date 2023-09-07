@@ -2,93 +2,102 @@
 @use '@/sass/tools/mixins';
 
 .current-weather {
-  background: linear-gradient(variables.$primary-color-alt, variables.$primary-color-alt),
-  url("@/assets/images/Cloud-background.png") top no-repeat;
-  background-position: top 100px center;
-  height: 100%;
-  min-height: 100vh;
-  position: relative;
-  width: 100%;
-  
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-content: space-between;
-  
-  padding-left: variables.$space-xs;
-  padding-right: variables.$space-xs;
-  padding-top: variables.$space-s;
-  
-  @include mixins.media-query('l') {
-      max-width: variables.$sidebarWidth;
-      height: auto;
-      padding: variables.$space-xl;
-  }
-
-  > * {
+    background:
+        linear-gradient(
+            variables.$primary-color-alt,
+            variables.$primary-color-alt
+        ),
+        url('@/assets/images/Cloud-background.png') top no-repeat;
+    background-position: top 100px center;
+    height: 100%;
+    min-height: 100vh;
+    position: relative;
     width: 100%;
-  }
 
-  &__header {
     display: flex;
-    justify-content: space-between;
-    margin-bottom: variables.$space-l;
-  }
-
-  &__body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: variables.$space-l;
-  }
-
-  &__body p:nth-child(2){
-    margin-bottom: variables.$space-s;
-    @include mixins.media-query('l') {
-      margin-bottom: variables.$space-xxl;
-    }
-  }
-
-  &__body *:nth-child(1) {
-    @include mixins.media-query('l') {
-      margin-bottom: variables.$space-xl;
-    }
-  }
-
-  &__body, &__footer {
-    text-align: center;
-  }
-
-
-  &__footer {
-    margin-bottom: variables.$space-xxl;
-
-    @include mixins.media-query('l') {
-      margin-bottom: variables.$space-m;
-    }
-  }
-
-  &__footer p {
-    margin-bottom: variables.$space-l;
-    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
-    column-gap: 18px;
-  }
+    align-content: space-between;
 
-  &__location svg {
-    margin-right: variables.$space-s;
-  }
+    padding-left: variables.$space-xs;
+    padding-right: variables.$space-xs;
+    padding-top: variables.$space-s;
 
-  .period {
-    width: 0.3em;
-    height: 0.3em;
-    border-radius: 50%;
-    background: variables.$gray-dark;
-    display: inline-block;
-  }
+    @include mixins.media-query('l') {
+        max-width: variables.$sidebarWidth;
+        height: auto;
+        padding: variables.$space-xl;
+    }
 
-  &__conditions {
-    text-wrap: balance;
-  }
+    > * {
+        width: 100%;
+    }
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: variables.$space-l;
+    }
+
+    &__body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: variables.$space-l;
+    }
+
+    &__body p:nth-child(2) {
+        margin-bottom: variables.$space-s;
+        @include mixins.media-query('l') {
+            margin-bottom: variables.$space-xxl;
+        }
+    }
+
+    &__body *:nth-child(1) {
+        @include mixins.media-query('l') {
+            margin-bottom: variables.$space-xl;
+        }
+    }
+
+    &__body,
+    &__footer {
+        text-align: center;
+    }
+
+    &__footer {
+        margin-bottom: variables.$space-xxl;
+
+        @include mixins.media-query('l') {
+            margin-bottom: variables.$space-m;
+        }
+    }
+
+    &__footer p {
+        margin-bottom: variables.$space-l;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        column-gap: 18px;
+    }
+
+    &__location {
+        color: variables.$gray-dark;
+    }
+
+    &__location svg {
+        margin-right: variables.$space-s;
+        color: currentColor;
+    }
+
+    .period {
+        width: 0.3em;
+        height: 0.3em;
+        border-radius: 50%;
+        background: variables.$gray-dark;
+        display: inline-block;
+    }
+
+    &__conditions {
+        text-wrap: balance;
+    }
 }

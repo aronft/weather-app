@@ -2,9 +2,9 @@ import { Metrics, MetricsData } from '../../../constants/metrics'
 import { getVariables } from '../../../utils/getVariables'
 import { ForeCast } from '../models/foreCast'
 
-export const getForecast = async ({
-    longitud,
-    latitud,
+export const getForecastApi = async ({
+    longitude,
+    latitude,
     startDate,
     endDate,
     unitGroup = Metrics.uk,
@@ -12,7 +12,7 @@ export const getForecast = async ({
     const variables = getVariables()
     const forecasts = []
     const data = await fetch(
-        `${variables.API_OPEN_METEO}/${longitud},${latitud}/${startDate}/${endDate}?key=${variables.OPEN_METEO_API_KEY}&iconSet=icons2&unitGroup=${unitGroup}`
+        `${variables.API_OPEN_METEO}/${longitude},${latitude}/${startDate}/${endDate}?key=${variables.OPEN_METEO_API_KEY}&iconSet=icons2&unitGroup=${unitGroup}`
     ).then((resp) => resp.json())
 
     for (let i = 0; i < data.days.length; i++) {
