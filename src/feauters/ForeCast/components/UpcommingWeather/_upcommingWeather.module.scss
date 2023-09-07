@@ -2,25 +2,32 @@
 @use '@/sass/tools/mixins';
 
 .weather-list {
-  padding-left: variables.$space-l;
-  padding-right: variables.$space-l;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  column-gap: variables.$space-m;
-  row-gap: variables.$space-l;
-
-  @include mixins.media-query('l') {
-    padding-left: 0;
-    padding-right: 0;
+    padding-left: variables.$space-l;
+    padding-right: variables.$space-l;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
     justify-content: space-between;
-  }
+    column-gap: variables.$space-m;
+    row-gap: variables.$space-l;
 
-  > * {
-    width: calc(100% / 2 - variables.$space-m);
+    @include mixins.media-query('sm') {
+        flex-direction: row;
+    }
 
     @include mixins.media-query('l') {
-      width: calc(100% / 5 - variables.$space-m);
+        padding-left: 0;
+        padding-right: 0;
+        justify-content: space-between;
     }
-  }
+
+    > * {
+        width: 100%;
+        @include mixins.media-query('sm') {
+            width: calc(100% / 2 - variables.$space-m);
+        }
+        @include mixins.media-query('l') {
+            width: calc(100% / 5 - variables.$space-m);
+        }
+    }
 }

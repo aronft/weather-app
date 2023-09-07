@@ -30,10 +30,14 @@ export const CurrentWeather = () => {
             <div className={styles['current-weather__body']}>
                 <WeatherImage image={icons[forecastToday.weatherCode]} />
                 <p className={'text-xl'}>
-                    {forecastToday.temp?.value}
-                    <span className={'text-l text-gray'}>°C</span>
+                    {forecastToday.temp.value}
+                    <span className={'text-l text-gray'}>
+                        °{forecastToday.temp.unit}
+                    </span>
                 </p>
-                <p className={'text-gray text-l wgh-600'}>shower</p>
+                <p className={'text-gray text-l wgh-600'}>
+                    {forecastToday.conditions}
+                </p>
             </div>
 
             <footer className={styles['current-weather__footer']}>

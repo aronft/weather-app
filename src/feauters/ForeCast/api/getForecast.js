@@ -55,9 +55,11 @@ export const getForecast = async ({
         forecasts.push(forecast)
     }
 
-    forecasts[0].temp = data.currentConditions.temp
+    forecasts[0].temp = {
+        value: data.currentConditions.temp,
+        unit: MetricsData.temperature[unitGroup],
+    }
     forecasts[0].weatherCode = data.currentConditions.icon
-
-    console.log(forecasts)
+    forecasts[0].conditions = data.currentConditions.console.log(forecasts)
     return forecasts
 }

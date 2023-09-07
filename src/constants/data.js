@@ -4,6 +4,11 @@ const FORE_CAST_DATA_BASE = [
     {
         id: '594ff0fd-cd54-473b-9547-4089c2867003',
         weatherCode: 'partly-cloudy-day',
+        conditions: 'Partially cloudy',
+        temp: {
+            value: 15,
+            unit: 'C',
+        },
         temperatureMin: {
             value: 41,
             unit: 'C',

@@ -4,6 +4,7 @@ export class ForeCast {
     id
     weatherCode
     temp
+    conditions
     temperatureMin = {
         value: 0,
         unit: '°C',
@@ -51,6 +52,7 @@ export class ForeCast {
         dateTime,
         weatherCode,
         temp,
+        conditions,
     }) {
         this.id = crypto.randomUUID()
         this.temperatureMax = temperatureMax
@@ -62,6 +64,7 @@ export class ForeCast {
         this.dateTime = dateTime
         this.weatherCode = weatherCode
         this.temp = temp
+        this.conditions = conditions
     }
 
     getCurrentDayFormat() {
