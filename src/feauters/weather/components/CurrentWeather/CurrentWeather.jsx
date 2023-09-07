@@ -35,7 +35,9 @@ export const CurrentWeather = () => {
                         °{forecastToday.temp.unit}
                     </span>
                 </p>
-                <p className={'text-gray text-l wgh-600'}>
+                <p
+                    className={`text-gray text-l wgh-600 ${styles['current-weather__conditions']}`}
+                >
                     {forecastToday.conditions}
                 </p>
             </div>
