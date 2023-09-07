@@ -6,6 +6,10 @@
   background-color: transparent;
   border: none;
   padding: variables.$space-xs variables.$space-s;
+
+  &--disable {
+    background-color: variables.$primary-light-color;
+  }
 }
 
 .btn--icon {

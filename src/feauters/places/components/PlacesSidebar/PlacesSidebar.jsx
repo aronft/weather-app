@@ -1,6 +1,7 @@
 import { add, format } from 'date-fns'
 import React, { useEffect } from 'react'
 
+import { Loader } from '../../../../components'
 import { Button } from '../../../../components/Button/Button'
 import { Metrics } from '../../../../constants/metrics'
 import { getForecast } from '../../../ForeCast/api/getForecast'
@@ -16,6 +17,7 @@ export const PlacesSidebar = () => {
     const isOpenSidebar = usePlacesStore((state) => state.isOpenSidebar)
     const places = usePlacesStore((state) => state.places)
     const setActualPlace = usePlacesStore((state) => state.setActualPlace)
+    const isLoading = usePlacesStore((state) => state.isLoading)
     const actualPlace = usePlacesStore((state) => state.actualPlace)
     const setForecasts = useForeCastStore((state) => state.setForecasts)
     const setForecastToday = useForeCastStore((state) => state.setForecastToday)
@@ -57,7 +59,12 @@ export const PlacesSidebar = () => {
                 <i className="fa-solid fa-xmark"></i>
             </Button>
             <PlacesSearch />
-            <PlacesList list={places} setPlace={setActualPlace} />
+
+            {isLoading ? (
+                <Loader className={styles['center-spinner']} />
+            ) : (
+                <PlacesList list={places} setPlace={setActualPlace} />
+            )}
         </aside>
     )
 }

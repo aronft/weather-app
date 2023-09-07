@@ -1,6 +1,7 @@
 export const createPlacesSlice = (set) => ({
     places: [],
     actualPlace: null,
+    isLoading: false,
     setPlaces: (places) => set((state) => ({ places })),
     setActualPlace: (place) =>
         set((state) => {
@@ -8,4 +9,7 @@ export const createPlacesSlice = (set) => ({
                 actualPlace: place,
             }
         }),
+
+    startLoadnig: () => set(() => ({ isLoading: true })),
+    endLoadnig: () => set(() => ({ isLoading: false })),
 })

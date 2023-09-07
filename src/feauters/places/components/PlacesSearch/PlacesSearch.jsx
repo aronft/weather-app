@@ -19,10 +19,10 @@ const schema = yup
 export const PlacesSearch = () => {
     const variables = getVariables()
     const setPlaces = usePlacesStore((state) => state.setPlaces)
-    // const { data, error, isLoading } = useSWR(
-    //     `${variables.API_GEODB_CITIES}/cities`,
-    //     getPlacebyName
-    // )
+    const isLoading = usePlacesStore((state) => state.isLoading)
+    const startLoading = usePlacesStore((state) => state.startLoadnig)
+    const endLoading = usePlacesStore((state) => state.endLoadnig)
+
     const {
         register,
         handleSubmit,
@@ -32,12 +32,21 @@ export const PlacesSearch = () => {
     })
 
     const onSubmit = (data) => {
+        if (isLoading) {
+            return
+        }
+        startLoading()
         getPlacebyName({
             url: `${variables.API_GEODB_CITIES}/cities`,
             params: { minPopulation: 1000000, namePrefix: 'lima' },
-        }).then((data) => {
-            setPlaces(data)
         })
+            .then((data) => {
+                setPlaces(data)
+                setTimeout(() => {
+                    endLoading()
+                }, 500)
+            })
+            .catch(() => endLoading())
     }
 
     return (
@@ -64,7 +73,10 @@ export const PlacesSearch = () => {
                         ></i>
                     </div>
                 </div>
-                <Button className={'btn btn-secondary text-gray-light'}>
+                <Button
+                    className={'btn btn-secondary text-gray-light'}
+                    disabled={isLoading}
+                >
                     Search{' '}
                 </Button>
             </form>

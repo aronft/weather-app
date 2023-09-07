@@ -11,7 +11,6 @@ import styles from './_current-weather.module.scss'
 export const CurrentWeather = () => {
     const toggleSidbar = usePlacesStore((state) => state.toggleSidbar)
     const forecastToday = useForeCastStore((state) => state.forecastToday)
-    console.log(forecastToday)
     const actualPlace = usePlacesStore((state) => state.actualPlace)
     return (
         <section className={styles['current-weather']}>
