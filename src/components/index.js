@@ -1,4 +1,5 @@
 export * from './Button/Button'
 export * from './Card'
+export * from './GlobalLoader'
 export * from './Loader'
 export * from './WeatherImage/WeatherImage'

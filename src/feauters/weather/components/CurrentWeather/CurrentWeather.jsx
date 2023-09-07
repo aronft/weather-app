@@ -16,7 +16,7 @@ export const CurrentWeather = () => {
     const getUbication = () => {
         navigator.geolocation.getCurrentPosition((position) => {
             const { latitude, longitude } = position.coords
-            getForecast({ latitude, longitude }).then()
+            getForecast({ latitude, longitude })
         })
     }
     return (
@@ -39,22 +39,22 @@ export const CurrentWeather = () => {
             <div className={styles['current-weather__body']}>
                 <WeatherImage image={icons[forecastToday.weatherCode]} />
                 <p className={'text-xl'}>
-                    {forecastToday.temp.value}
+                    {forecastToday?.temp?.value}
                     <span className={'text-l text-gray'}>
-                        °{forecastToday.temp.unit}
+                        °{forecastToday?.temp?.unit}
                     </span>
                 </p>
                 <p
                     className={`text-gray text-l wgh-600 ${styles['current-weather__conditions']}`}
                 >
-                    {forecastToday.conditions}
+                    {forecastToday?.conditions}
                 </p>
             </div>
 
             <footer className={styles['current-weather__footer']}>
                 <p className={'text-m text-gray-dark '}>
                     Today <span className={styles.period}></span>{' '}
-                    {forecastToday.dateTime &&
+                    {forecastToday?.dateTime &&
                         getCurrentDayFormat(forecastToday.dateTime)}
                 </p>
                 <div

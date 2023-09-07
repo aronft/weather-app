@@ -13,7 +13,7 @@ export const getForecastApi = async ({
     const forecasts = []
     const data = await fetch(
         `${variables.API_OPEN_METEO}/${longitude},${latitude}/${startDate}/${endDate}?key=${variables.OPEN_METEO_API_KEY}&iconSet=icons2&unitGroup=${unitGroup}`
-    ).then((resp) => resp.json())
+    ).then((res) => res.json())
 
     for (let i = 0; i < data.days.length; i++) {
         const forecast = new ForeCast({})
@@ -56,10 +56,11 @@ export const getForecastApi = async ({
     }
 
     forecasts[0].temp = {
-        value: data.currentConditions.temp,
+        value: Math.round(Math.abs(data.currentConditions.temp)),
         unit: MetricsData.temperature[unitGroup],
     }
     forecasts[0].weatherCode = data.currentConditions.icon
-    forecasts[0].conditions = data.currentConditions.console.log(forecasts)
+    forecasts[0].conditions = data.currentConditions.conditions
+
     return forecasts
 }
