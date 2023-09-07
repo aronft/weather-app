@@ -11,8 +11,8 @@
 button:disabled,
 button[disabled] {
     background-color: variables.$primary-light-color;
-    border: 1px solid #999999;
-    color: #fff;
+    border: 1px solid variables.$primary-light-color;
+    color: variables.$gray-light;
 }
 
 .btn--icon {
