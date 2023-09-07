@@ -9,10 +9,9 @@ import { useForeCastStore } from './store/foreCastStore'
 export const ForeCast = () => {
     const forecasts = useForeCastStore((state) => state.forecasts)
     const forecastToday = useForeCastStore((state) => state.forecastToday)
-
-    const foreCastsWithoutToday = forecasts.filter(
-        (forecast) => forecast.time !== forecastToday.time
-    )
+    const foreCastTodayIndex = ForeCastModel.getTodayIndex(forecasts)
+    const forecatsWithoutInitialDates = [...forecasts]
+    forecatsWithoutInitialDates.splice(0, foreCastTodayIndex + 1)
 
     return (
         <section className={styles.forecast}>
@@ -34,7 +33,7 @@ export const ForeCast = () => {
             </header>
 
             <div className={styles.forecast__body}>
-                <UpcommingWeather wetaherList={foreCastsWithoutToday} />
+                <UpcommingWeather wetaherList={forecatsWithoutInitialDates} />
                 <h2 className={'text-m'}>Todays Highlights</h2>
                 <CurrentHighlights forecast={forecastToday} />
             </div>

@@ -1,6 +1,7 @@
 import { format, fromUnixTime } from 'date-fns'
 
 export class ForeCast {
+    id
     weatherCode
     temperatureMin = {
         value: 0,
@@ -70,9 +71,10 @@ export class ForeCast {
         return todayForeCastIndex
     }
 
-    isTomorrow(actualForcast) {
-        const currentForcastDate = fromUnixTime(this.time.value)
+    static isTomorrow(actualForcast) {
+        const currentForcastDate = new Date()
         const actualForcastDate = fromUnixTime(actualForcast)
-        return currentForcastDate.getDate() - actualForcastDate.getDate() === 1
+        console.log(currentForcastDate.getDate(), actualForcastDate.getDate())
+        return actualForcastDate.getDate() - currentForcastDate.getDate() === 1
     }
 }

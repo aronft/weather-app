@@ -9,7 +9,7 @@ export const getForecast = async ({ longitud, latitud }) => {
     ).then((resp) => resp.json())
 
     for (let i = 0; i < data.daily.time.length; i++) {
-        const forecast = new ForeCast({})
+        const forecast = new ForeCast({ id: crypto.randomUUID() })
 
         forecast.time = {
             value: data.daily.time[i],
