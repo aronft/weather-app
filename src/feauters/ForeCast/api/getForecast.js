@@ -1,60 +1,62 @@
+import { Metrics, MetricsData } from '../../../constants/metrics'
 import { getVariables } from '../../../utils/getVariables'
 import { ForeCast } from '../models/foreCast'
 
-export const getForecast = async ({ longitud, latitud }) => {
+export const getForecast = async ({
+    longitud,
+    latitud,
+    startDate,
+    endDate,
+    unitGroup = Metrics.uk,
+}) => {
     const variables = getVariables()
     const forecasts = []
     const data = await fetch(
-        `${variables.API_OPEN_METEO}/forecast?latitude=${latitud}&longitude=${longitud}&hourly=relativehumidity_2m,visibility,pressure_msl&&daily=temperature_2m_max,temperature_2m_min,weathercode&current_weather=true&timeformat=unixtime&timezone=America%2FNew_York&format=json&windspeed_unit=mph`
+        `${variables.API_OPEN_METEO}/${longitud},${latitud}/${startDate}/${endDate}?key=${variables.OPEN_METEO_API_KEY}&iconSet=icons2&unitGroup=${unitGroup}`
     ).then((resp) => resp.json())
 
-    for (let i = 0; i < data.daily.time.length; i++) {
-        const forecast = new ForeCast({ id: crypto.randomUUID() })
+    for (let i = 0; i < data.days.length; i++) {
+        const forecast = new ForeCast({})
+        const item = data.days[i]
 
-        forecast.time = {
-            value: data.daily.time[i],
-            unit: data.daily_units.time,
-        }
+        forecast.dateTime = item.datetime
+
         forecast.temperatureMax = {
-            value: data.daily.temperature_2m_max[i],
-            unit: data.daily_units.temperature_2m_max,
+            value: Math.round(Math.abs(item.tempmax)),
+            unit: MetricsData.temperature[unitGroup],
         }
         forecast.temperatureMin = {
-            value: data.daily.temperature_2m_min[i],
-            unit: data.daily_units.temperature_2m_min,
+            value: Math.round(Math.abs(item.tempmin)),
+            unit: MetricsData.temperature[unitGroup],
         }
 
-        forecast.weatherCode = data.daily.weathercode[i]
+        forecast.windspeed = {
+            value: item.windspeed,
+            unit: MetricsData.windspeed[unitGroup],
+        }
+
+        forecast.weatherCode = item.icon
+
+        forecast.humidity = {
+            value: item.humidity,
+            unit: '%',
+        }
+
+        forecast.visibilty = {
+            value: item.visibility,
+            unit: MetricsData.visibility[unitGroup],
+        }
+
+        forecast.airPresure = {
+            value: item.pressure,
+            unit: 'mb',
+        }
+
         forecasts.push(forecast)
     }
 
-    const forecastTodayIndex = ForeCast.getTodayIndex(forecasts)
-
-    if (forecastTodayIndex !== -1) {
-        forecasts[forecastTodayIndex].windspeed = {
-            value: data.current_weather.windspeed,
-            unit: 'mph',
-        }
-
-        const indexTimeCurrentDay = data.hourly.time.findIndex(
-            (time) => time === forecasts[forecastTodayIndex].time.value
-        )
-        if (indexTimeCurrentDay !== -1) {
-            forecasts[forecastTodayIndex].humidity = {
-                value: data.hourly.relativehumidity_2m[indexTimeCurrentDay],
-                unit: data.hourly_units.relativehumidity_2m,
-            }
-            forecasts[forecastTodayIndex].visibilty = {
-                value: data.hourly.visibility[indexTimeCurrentDay],
-                unit: data.hourly_units.visibility,
-            }
-
-            forecasts[forecastTodayIndex].airPresure = {
-                value: data.hourly.pressure_msl[indexTimeCurrentDay],
-                unit: data.hourly_units.pressure_msl,
-            }
-        }
-    }
+    forecasts[0].temp = data.currentConditions.temp
+    forecasts[0].weatherCode = data.currentConditions.icon
 
     console.log(forecasts)
     return forecasts

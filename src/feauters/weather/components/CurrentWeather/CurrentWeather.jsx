@@ -2,11 +2,17 @@ import React from 'react'
 
 import { Button } from '../../../../components/Button/Button'
 import { WeatherImage } from '../../../../components/WeatherImage/WeatherImage'
+import { icons } from '../../../../constants'
+import { useForeCastStore } from '../../../ForeCast/store/foreCastStore'
+import { getCurrentDayFormat } from '../../../ForeCast/utils/getFormatDate'
 import { usePlacesStore } from '../../../places/store/placesStore'
 import styles from './_current-weather.module.scss'
 
 export const CurrentWeather = () => {
     const toggleSidbar = usePlacesStore((state) => state.toggleSidbar)
+    const forecastToday = useForeCastStore((state) => state.forecastToday)
+    console.log(forecastToday)
+    const actualPlace = usePlacesStore((state) => state.actualPlace)
     return (
         <section className={styles['current-weather']}>
             <header className={styles['current-weather__header']}>
@@ -22,16 +28,19 @@ export const CurrentWeather = () => {
             </header>
 
             <div className={styles['current-weather__body']}>
-                <WeatherImage />
+                <WeatherImage image={icons[forecastToday.weatherCode]} />
                 <p className={'text-xl'}>
-                    15<span className={'text-l text-gray'}>°C</span>
+                    {forecastToday.temp?.value}
+                    <span className={'text-l text-gray'}>°C</span>
                 </p>
                 <p className={'text-gray text-l wgh-600'}>shower</p>
             </div>
 
             <footer className={styles['current-weather__footer']}>
                 <p className={'text-m text-gray-dark '}>
-                    Today <span className={styles.period}></span> Fri, 5 Jun
+                    Today <span className={styles.period}></span>{' '}
+                    {forecastToday.dateTime &&
+                        getCurrentDayFormat(forecastToday.dateTime)}
                 </p>
                 <div
                     className={`${styles['current-weather__location']} ${styles['text-gray-dark']} ${styles['wgh-600']}`}

@@ -1,14 +1,13 @@
 import React from 'react'
 
-import shower from '../../assets/images/Shower.png'
 import styles from './_weather-image.module.scss'
 
-export const WeatherImage = ({ images = ['Shower'], className = '' }) => {
+export const WeatherImage = ({ image, className = '' }) => {
     return (
         <div
             className={`${styles['weather-image-container']} ${styles[className]}`}
         >
-            <img src={shower} alt="" />
+            <img src={image} alt="" />
         </div>
     )
 }

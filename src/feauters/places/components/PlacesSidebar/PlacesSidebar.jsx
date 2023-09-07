@@ -1,6 +1,8 @@
+import { add, format } from 'date-fns'
 import React, { useEffect } from 'react'
 
 import { Button } from '../../../../components/Button/Button'
+import { Metrics } from '../../../../constants/metrics'
 import { getForecast } from '../../../ForeCast/api/getForecast'
 import { ForeCast } from '../../../ForeCast/models/foreCast'
 import { useForeCastStore } from '../../../ForeCast/store/foreCastStore'
@@ -22,7 +24,20 @@ export const PlacesSidebar = () => {
         if (actualPlace === null) {
             return
         }
-        getForecast({ latitud: -12.0432, longitud: -77.0282 }).then((data) => {
+
+        const startDate = new Date()
+        const endDate = add(startDate, { days: 5 })
+
+        const startDateFormatted = format(startDate, 'yyyy-MM-dd')
+        const endDateFormatted = format(endDate, 'yyyy-MM-dd')
+
+        getForecast({
+            latitud: -12.0432,
+            longitud: -77.0282,
+            startDate: startDateFormatted,
+            endDate: endDateFormatted,
+            unitGroup: Metrics.uk,
+        }).then((data) => {
             const forecastTodayIndex = ForeCast.getTodayIndex(data)
             setForecasts(data)
             setForecastToday(data[forecastTodayIndex])

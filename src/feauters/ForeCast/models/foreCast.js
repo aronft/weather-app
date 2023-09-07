@@ -1,8 +1,9 @@
-import { format, fromUnixTime } from 'date-fns'
+import { format, fromUnixTime, parse } from 'date-fns'
 
 export class ForeCast {
     id
     weatherCode
+    temp
     temperatureMin = {
         value: 0,
         unit: '°C',
@@ -13,9 +14,11 @@ export class ForeCast {
         unit: '°C',
     }
 
+    dateTime = '' // ISO 8601 YYYY-MM-DD
+
     time = {
         value: 0,
-        unit: 'unixtime',
+        unit: '',
     }
 
     windspeed = {
@@ -45,17 +48,24 @@ export class ForeCast {
         windspeed,
         visibilty,
         humidity,
+        dateTime,
+        weatherCode,
+        temp,
     }) {
+        this.id = crypto.randomUUID()
         this.temperatureMax = temperatureMax
         this.temperatureMin = temperatureMin
         this.time = time
         this.windspeed = windspeed
         this.humidity = humidity
         this.visibilty = visibilty
+        this.dateTime = dateTime
+        this.weatherCode = weatherCode
+        this.temp = temp
     }
 
     getCurrentDayFormat() {
-        const date = fromUnixTime(this.time.value)
+        const date = parse(this.dateTime, 'yyyy-MM-dd', new Date())
         return `${format(date, 'E')}. ${format(date, 'd')} ${format(
             date,
             'LLL'
@@ -65,16 +75,19 @@ export class ForeCast {
     static getTodayIndex(forecasts = []) {
         const today = new Date()
         const todayForeCastIndex = forecasts.findIndex((foreCast) => {
-            const foreCastDate = fromUnixTime(foreCast.time.value)
+            const foreCastDate = parse(
+                foreCast.dateTime,
+                'yyyy-MM-dd',
+                new Date()
+            )
             return today.getDate() - foreCastDate.getDate() === 0
         })
         return todayForeCastIndex
     }
 
-    static isTomorrow(actualForcast) {
+    isTomorrow() {
         const currentForcastDate = new Date()
-        const actualForcastDate = fromUnixTime(actualForcast)
-        console.log(currentForcastDate.getDate(), actualForcastDate.getDate())
+        const actualForcastDate = parse(this.dateTime, 'yyyy-MM-dd', new Date())
         return actualForcastDate.getDate() - currentForcastDate.getDate() === 1
     }
 }

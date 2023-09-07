@@ -1,6 +1,5 @@
 import React from 'react'
 
-import { ForeCast } from '../../models/foreCast'
 import { WeatherCard } from '../WeatherCard/WeatherCard'
 import styles from './_upcommingWeather.module.scss'
 
@@ -11,12 +10,13 @@ export const UpcommingWeather = ({ wetaherList = [] }) => {
                 <WeatherCard
                     key={weather.id}
                     title={
-                        ForeCast.isTomorrow(weather.time.value)
+                        weather.isTomorrow()
                             ? 'Tomorrow'
                             : weather.getCurrentDayFormat()
                     }
                     max={weather.temperatureMax}
                     min={weather.temperatureMin}
+                    code={weather.weatherCode}
                 />
             ))}
         </div>

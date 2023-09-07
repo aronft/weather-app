@@ -2,6 +2,7 @@ import React from 'react'
 
 import { Card } from '../../../../components/Card/Card'
 import { WeatherImage } from '../../../../components/WeatherImage/WeatherImage'
+import { icons } from '../../../../constants'
 import styles from './_weather-card.module.scss'
 
 export const WeatherCard = ({ min, max, code, title }) => {
@@ -15,9 +16,14 @@ export const WeatherCard = ({ min, max, code, title }) => {
             </p>
         </>
     )
+
+    const image = icons[code]
     return (
         <Card title={title} footer={footer} className={styles['weather-card']}>
-            <WeatherImage className={'weather-image-container--s'} />
+            <WeatherImage
+                className={'weather-image-container--s'}
+                image={image}
+            />
         </Card>
     )
 }
