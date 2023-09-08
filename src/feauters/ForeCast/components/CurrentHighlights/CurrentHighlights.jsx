@@ -17,7 +17,13 @@ export const CurrentHighlights = ({ forecast }) => {
 
     return (
         <div className={styles['current-highlights']}>
-            <Card title={'Wind status'} footer={footerCurrent}>
+            <Card
+                title={'Wind status'}
+                footer={footerCurrent}
+                titleTag="h3"
+                tag="article"
+                aria-labelledby="windspeed-content"
+            >
                 <p className={'text-2l wgh-700'}>
                     {forecast.windspeed?.value}
                     <span className={'text-l wgh-500'}>
@@ -27,6 +33,9 @@ export const CurrentHighlights = ({ forecast }) => {
             </Card>
             <Card
                 title={'Humidity'}
+                titleTag={'h3'}
+                tag={'article'}
+                aria-labelledby="humidity-content"
                 footer={<Bar value={forecast.humidity?.value} />}
             >
                 <p className={'text-2l wgh-700'}>
@@ -36,7 +45,12 @@ export const CurrentHighlights = ({ forecast }) => {
                     </span>
                 </p>
             </Card>
-            <Card title={'Visibility'}>
+            <Card
+                title={'Visibility'}
+                titleTag="h3"
+                tag="article"
+                aria-labelledby="Visibility-content"
+            >
                 <p className={'text-2l wgh-700'}>
                     {forecast.visibilty?.value}
                     <span className={'text-l wgh-500'}>
@@ -44,7 +58,12 @@ export const CurrentHighlights = ({ forecast }) => {
                     </span>
                 </p>
             </Card>
-            <Card title={'Air Pressure'}>
+            <Card
+                title={'Air Pressure'}
+                titleTag="h3"
+                aria-labelledby="air-presure-content"
+                tag="article"
+            >
                 <p className={'text-2l wgh-700'}>
                     {forecast.airPresure?.value}
                     <span className={'text-l wgh-500'}>

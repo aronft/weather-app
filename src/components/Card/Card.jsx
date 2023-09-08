@@ -2,14 +2,26 @@ import React from 'react'
 
 import styles from './_card.module.scss'
 
-export const Card = ({ children, title, footer, className = '' }) => {
+export const Card = ({
+    children,
+    title,
+    footer,
+    className = '',
+    titleTag = 'p',
+    tag = 'div',
+    ...props
+}) => {
+    const TitleTag = titleTag
+    const Tag = tag
     return (
-        <div className={`${styles.card} ${className}`}>
+        <Tag className={`${styles.card} ${className}`} {...props}>
             <div className={styles.card__title}>
-                <p className={'text-s'}>{title}</p>
+                <TitleTag id={props['aria-labelledby']} className={'text-s'}>
+                    {title}
+                </TitleTag>
             </div>
             <div className={styles.card__body}>{children}</div>
             <div className={styles.card__footer}>{footer}</div>
-        </div>
+        </Tag>
     )
 }

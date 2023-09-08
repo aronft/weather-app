@@ -5,7 +5,10 @@ import styles from './_upcommingWeather.module.scss'
 
 export const UpcommingWeather = ({ wetaherList = [] }) => {
     return (
-        <div className={styles['weather-list']}>
+        <section
+            className={styles['weather-list']}
+            aria-label="upcomming-weather"
+        >
             {wetaherList.map((weather) => (
                 <WeatherCard
                     key={weather.id}
@@ -19,6 +22,6 @@ export const UpcommingWeather = ({ wetaherList = [] }) => {
                     code={weather.weatherCode}
                 />
             ))}
-        </div>
+        </section>
     )
 }

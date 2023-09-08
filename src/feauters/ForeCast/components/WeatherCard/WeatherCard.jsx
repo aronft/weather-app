@@ -8,10 +8,10 @@ import styles from './_weather-card.module.scss'
 export const WeatherCard = ({ min, max, code, title }) => {
     const footer = (
         <>
-            <p className={'text-s'}>
+            <p className={'text-s'} data-testid="weather-temperature">
                 {Math.round(max.value)} °{max.unit}
             </p>
-            <p className={'text-s text-gray'}>
+            <p className={'text-s text-gray'} data-testid="weather-temperature">
                 {Math.round(min.value)} °{min.unit}
             </p>
         </>
