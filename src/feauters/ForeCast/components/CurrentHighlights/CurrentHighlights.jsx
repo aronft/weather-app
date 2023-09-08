@@ -3,6 +3,7 @@ import React from 'react'
 import { Button } from '@/components/Button/Button'
 import { Card } from '@/components/Card/Card'
 
+import { Bar } from '../../../../components/Bar'
 import styles from './_current_highlights.module.scss'
 
 export const CurrentHighlights = ({ forecast }) => {
@@ -14,7 +15,6 @@ export const CurrentHighlights = ({ forecast }) => {
         </>
     )
 
-    const footerHumidity = <>barra</>
     return (
         <div className={styles['current-highlights']}>
             <Card title={'Wind status'} footer={footerCurrent}>
@@ -25,7 +25,10 @@ export const CurrentHighlights = ({ forecast }) => {
                     </span>
                 </p>
             </Card>
-            <Card title={'Humidity'} footer={footerHumidity}>
+            <Card
+                title={'Humidity'}
+                footer={<Bar value={forecast.humidity?.value} />}
+            >
                 <p className={'text-2l wgh-700'}>
                     {forecast.humidity?.value}
                     <span className={'text-l wgh-500'}>

@@ -6,6 +6,7 @@ import { usePlaces } from '../../places/hooks/usePlaces'
 import { getForecastApi } from '../api/getForecastApi'
 import { ForeCast } from '../models/foreCast'
 import { useForeCastStore } from '../store/foreCastStore'
+import { celsiousFahrenheitSwapForeCast } from '../utils'
 
 export const useForeCast = () => {
     const forecasts = useForeCastStore((state) => state.forecasts)
@@ -44,11 +45,18 @@ export const useForeCast = () => {
         getForecast({ latitude: place.latitude, longitude: place.longitude })
     }
 
+    const swapTemperatures = () => {
+        const data = celsiousFahrenheitSwapForeCast(forecasts)
+        setForecasts(data)
+        setForecastToday(data[ForeCast.getTodayIndex(data)])
+    }
+
     return {
         getForecast,
         forecasts,
         forecastToday,
         isLoading,
         setActualAndCall,
+        swapTemperatures,
     }
 }

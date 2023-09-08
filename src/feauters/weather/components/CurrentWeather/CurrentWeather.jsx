@@ -14,7 +14,6 @@ export const CurrentWeather = () => {
     const toggleSidbar = usePlacesStore((state) => state.toggleSidbar)
     const actualPlace = usePlacesStore((state) => state.actualPlace)
     const { getPlaceByLocation } = usePlaces()
-
     const getUbication = () => {
         navigator.geolocation.getCurrentPosition((position) => {
             const { latitude, longitude } = position.coords
@@ -42,7 +41,7 @@ export const CurrentWeather = () => {
             <div className={styles['current-weather__body']}>
                 <WeatherImage image={icons[forecastToday.weatherCode]} />
                 <p className={'text-xl'}>
-                    {forecastToday?.temp?.value}
+                    {Math.round(forecastToday?.temp?.value)}
                     <span className={'text-l text-gray'}>
                         °{forecastToday?.temp?.unit}
                     </span>

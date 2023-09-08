@@ -2,44 +2,50 @@
 @use '@/sass/tools/mixins';
 
 .forecast {
-  width: 100%;
-  padding: variables.$space-xl variables.$space-m;
-  background-color: variables.$primary-dark-color;
-  @include mixins.media-query('l') {
-    padding-left: 154px;
-    padding-right: 154px;
-    padding-bottom: variables.$space-m;
+    width: 100%;
+    padding: variables.$space-xl variables.$space-m;
+    background-color: variables.$primary-dark-color;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
+    @include mixins.media-query('xl') {
+        padding-left: 154px;
+        padding-right: 154px;
+    }
 
-  &__header {
-    margin-bottom: variables.$space-l;
-  }
+    @include mixins.media-query('l') {
+        padding-left: 64px;
+        padding-right: 64px;
+        padding-bottom: variables.$space-m;
 
-  &__options {
-    display: flex;
-    justify-content: flex-end;
-    column-gap: variables.$space-s;
-  }
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
 
-  &__body {
-    display: flex;
-    flex-direction: column;
-    row-gap: variables.$space-l;
-    margin-bottom: variables.$space-xl;
-  }
+    &__header {
+        margin-bottom: variables.$space-l;
+    }
 
-  &__footer {
-    text-align: center;
-    font-family: variables.$secondary-font;
-    font-weight: 700;
+    &__options {
+        display: flex;
+        justify-content: flex-end;
+        column-gap: variables.$space-s;
+    }
 
-    p {
-      display: flex;
-      justify-content: center;
-    };
-  }
+    &__body {
+        display: flex;
+        flex-direction: column;
+        row-gap: variables.$space-l;
+        margin-bottom: variables.$space-xl;
+    }
+
+    &__footer {
+        text-align: center;
+        font-family: variables.$secondary-font;
+        font-weight: 700;
+
+        p {
+            display: flex;
+            justify-content: center;
+        }
+    }
 }

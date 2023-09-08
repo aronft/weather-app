@@ -19,6 +19,7 @@ import thunder from '@/assets/images/thunder.svg'
 import thunderRain from '@/assets/images/thunder-rain.svg'
 import thunderShowersDay from '@/assets/images/thunder-showers-day.svg'
 import thunderShowersNight from '@/assets/images/thunder-showers-night.svg'
+import unknown from '@/assets/images/unknown.svg'
 import wind from '@/assets/images/wind.svg'
 
 export const icons = {
@@ -44,4 +45,5 @@ export const icons = {
     'thunder-showers-night': thunderShowersNight,
     thunder,
     wind,
+    unknown,
 }

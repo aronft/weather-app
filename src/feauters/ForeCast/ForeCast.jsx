@@ -7,15 +7,13 @@ import { CurrentHighlights } from './components/CurrentHighlights/CurrentHighlig
 import { UpcommingWeather } from './components/UpcommingWeather/UpcommingWeather'
 import { useForeCast } from './hooks'
 import { ForeCast as ForeCastModel } from './models/foreCast'
-import { useForeCastStore } from './store/foreCastStore'
 export const ForeCast = () => {
     const { actualPlace } = usePlaces()
-    const { forecasts } = useForeCast(actualPlace)
-    const forecastToday = useForeCastStore((state) => state.forecastToday)
+    const { forecasts, swapTemperatures, forecastToday } =
+        useForeCast(actualPlace)
     const foreCastTodayIndex = ForeCastModel.getTodayIndex(forecasts)
     const forecatsWithoutInitialDates = [...forecasts]
     forecatsWithoutInitialDates.splice(0, foreCastTodayIndex + 1)
-
     return (
         <section className={styles.forecast}>
             <header className={styles.forecast__header}>
@@ -24,11 +22,13 @@ export const ForeCast = () => {
                         className={
                             'btn btn--icon btn-gray-light text-primary-dark wgh-700'
                         }
+                        onClick={swapTemperatures}
                     >
                         °C
                     </Button>
                     <Button
                         className={'btn btn--icon btn-primary-light wgh-700'}
+                        onClick={swapTemperatures}
                     >
                         °F
                     </Button>

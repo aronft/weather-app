@@ -1,8 +1,8 @@
-import { Place } from '../../../../constants'
+import { ACTUAL_PLACE, Place } from '../../../../constants'
 
 export const createPlacesSlice = (set) => ({
     places: [],
-    actualPlace: null,
+    actualPlace: ACTUAL_PLACE,
     isLoading: false,
     setPlaces: (places) => set((state) => ({ places })),
     setActualPlace: (place) =>

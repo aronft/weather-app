@@ -1,3 +1,4 @@
+export * from './Bar'
 export * from './Button/Button'
 export * from './Card'
 export * from './GlobalLoader'

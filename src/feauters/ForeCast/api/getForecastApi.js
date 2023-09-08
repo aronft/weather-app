@@ -22,11 +22,11 @@ export const getForecastApi = async ({
         forecast.dateTime = item.datetime
 
         forecast.temperatureMax = {
-            value: Math.round(Math.abs(item.tempmax)),
+            value: Math.abs(item.tempmax),
             unit: MetricsData.temperature[unitGroup],
         }
         forecast.temperatureMin = {
-            value: Math.round(Math.abs(item.tempmin)),
+            value: Math.abs(item.tempmin),
             unit: MetricsData.temperature[unitGroup],
         }
 
@@ -56,7 +56,7 @@ export const getForecastApi = async ({
     }
 
     forecasts[0].temp = {
-        value: Math.round(Math.abs(data.currentConditions.temp)),
+        value: Math.abs(data.currentConditions.temp),
         unit: MetricsData.temperature[unitGroup],
     }
     forecasts[0].weatherCode = data.currentConditions.icon

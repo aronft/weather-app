@@ -9,10 +9,10 @@ export const WeatherCard = ({ min, max, code, title }) => {
     const footer = (
         <>
             <p className={'text-s'}>
-                {max.value} {max.unit}
+                {Math.round(max.value)} °{max.unit}
             </p>
-            <p className={'text-s'}>
-                {min.value} {min.unit}
+            <p className={'text-s text-gray'}>
+                {Math.round(min.value)} °{min.unit}
             </p>
         </>
     )
