@@ -42,6 +42,7 @@ export const PlacesSearch = () => {
                             type="text"
                             name="search"
                             placeholder="search city"
+                            aria-label="search city"
                             className={`${styles['search-input']} ${
                                 errors.search?.message
                                     ? styles['search-input--error']
@@ -57,8 +58,9 @@ export const PlacesSearch = () => {
                 <Button
                     className={'btn btn-secondary text-gray-light'}
                     disabled={isLoading}
+                    aria-label="Search"
                 >
-                    Search{' '}
+                    Search
                 </Button>
             </form>
             <p className="text-danger text-xs">{errors.search?.message}</p>

@@ -24,8 +24,12 @@ export const PlacesSidebar = () => {
             <Button
                 className={'btn btn--icon text-gray-light'}
                 onClick={toggleSidbar}
+                aria-label="close button"
             >
-                <i className="fa-solid fa-xmark"></i>
+                <i
+                    className="fa-solid fa-xmark"
+                    aria-label="close sidebar icon"
+                ></i>
             </Button>
             <PlacesSearch />
 

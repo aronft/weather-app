@@ -31,7 +31,7 @@ module.exports = defineConfig({
         trace: 'on-first-retry',
         permissions: ['geolocation'],
 
-        geolocation: { latitude: -12.04318, longitude: -77.02824 },
+        // geolocation: { latitude: -12.04318, longitude: -77.02824 },
     },
 
     /* Configure projects for major browsers */

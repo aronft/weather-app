@@ -1,4 +1,8 @@
 import { expect, test } from '@playwright/test'
+test.use({
+    geolocation: { latitude: -12.04318, longitude: -77.02824 },
+    permissions: ['geolocation'],
+})
 
 test.describe('when data loaded in forecast', () => {
     test('should the current hightlights data not be the default values', async ({
@@ -54,7 +58,6 @@ test.describe('when data loaded in forecast', () => {
         for (let i = 0; i < total; i++) {
             const temperature = await cards.nth(i).textContent()
             const temperatureNumber = parseInt(temperature.slice(0, -2))
-            console.log(temperatureNumber, temperatureNumber === 0)
             expect(temperatureNumber).not.toBe(0)
         }
     })

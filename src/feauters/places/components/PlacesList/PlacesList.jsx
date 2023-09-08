@@ -5,7 +5,7 @@ import styles from './_places-list.module.scss'
 
 export const PlacesList = ({ list = [], setPlace }) => {
     return (
-        <div className={styles['places-list']}>
+        <div className={styles['places-list']} data-testid="places-list">
             {list.map((item) => (
                 <PlaceItem
                     key={item.id}

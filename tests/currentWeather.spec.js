@@ -1,7 +1,7 @@
 const { test, expect } = require('@playwright/test')
 
 test.use({
-    geolocation: { longitude: -12.04318, latitude: -77.02824 },
+    geolocation: { latitude: -12.04318, longitude: -77.02824 },
     permissions: ['geolocation'],
 })
 
