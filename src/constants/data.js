@@ -22,7 +22,7 @@ export const FORE_CAST_TODAY = () => {
             unit: 'km',
         },
         humidity: {
-            value: 20,
+            value: 0,
             unit: '%',
         },
         airPresure: {
