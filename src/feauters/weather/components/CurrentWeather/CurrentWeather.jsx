@@ -33,14 +33,18 @@ export const CurrentWeather = () => {
                 <Button
                     className={'btn btn--icon btn-gray-darken text-gray-light'}
                     onClick={getUbication}
+                    aria-label="Get current location"
                 >
                     <i className="fa-solid fa-location-crosshairs"></i>
                 </Button>
             </header>
 
             <div className={styles['current-weather__body']}>
-                <WeatherImage image={icons[forecastToday.weatherCode]} />
-                <p className={'text-xl'}>
+                <WeatherImage
+                    image={icons[forecastToday.weatherCode]}
+                    alt={`Weather ${forecastToday.weatherCode}`}
+                />
+                <p className={'text-xl'} aria-label="Temperature">
                     {Math.round(forecastToday?.temp?.value)}
                     <span className={'text-l text-gray'}>
                         °{forecastToday?.temp?.unit}
@@ -63,7 +67,9 @@ export const CurrentWeather = () => {
                     className={`${styles['current-weather__location']} ${styles['text-gray-dark']} ${styles['wgh-600']}`}
                 >
                     <i className="fa-solid fa-location-dot" color=""></i>
-                    {actualPlace?.name}
+                    <span aria-label="Current Location">
+                        {actualPlace?.name}
+                    </span>
                 </div>
             </footer>
         </section>
