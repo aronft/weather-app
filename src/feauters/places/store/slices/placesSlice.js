@@ -1,4 +1,4 @@
-import { ACTUAL_PLACE, Place } from '../../../../constants'
+import { ACTUAL_PLACE } from '../../../../constants'
 
 export const createPlacesSlice = (set) => ({
     places: [],

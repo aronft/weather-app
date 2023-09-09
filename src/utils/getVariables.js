@@ -1,10 +1,12 @@
+const config = import.meta.env
+
 export const getVariables = () => {
     return {
-        API_GEODB_CITIES: process.env.API_GEODB_CITIES,
-        RAPID_API_KEY: process.env.RAPID_API_KEY,
-        RAPID_API_HOST: process.env.RAPID_API_HOST,
+        API_GEODB_CITIES: config.VITE_API_GEODB_CITIES,
+        RAPID_API_KEY: config.VITE_RAPID_API_KEY,
+        RAPID_API_HOST: config.VITE_RAPID_API_HOST,
 
-        API_OPEN_METEO: process.env.API_OPEN_METEO,
-        OPEN_METEO_API_KEY: process.env.OPEN_METEO_API_KEY,
+        API_OPEN_METEO: config.VITE_API_OPEN_METEO,
+        OPEN_METEO_API_KEY: config.VITE_OPEN_METEO_API_KEY,
     }
 }
