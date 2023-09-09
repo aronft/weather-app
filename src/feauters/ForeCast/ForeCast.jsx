@@ -14,20 +14,29 @@ export const ForeCast = () => {
     const foreCastTodayIndex = ForeCastModel.getTodayIndex(forecasts)
     const forecatsWithoutInitialDates = [...forecasts]
     forecatsWithoutInitialDates.splice(0, foreCastTodayIndex + 1)
+
+    const isCelsious = forecastToday.temp.unit === 'C'
+
     return (
         <section className={styles.forecast}>
             <header className={styles.forecast__header}>
                 <div className={styles.forecast__options}>
                     <Button
-                        className={
-                            'btn btn--icon btn-gray-light text-primary-dark'
-                        }
+                        className={`btn btn--icon ${
+                            isCelsious
+                                ? 'btn-gray-light text-primary-dark'
+                                : 'btn-primary-light text-gray-light'
+                        }`}
                         onClick={swapTemperatures}
                     >
                         <span className="wgh-700">°C</span>
                     </Button>
                     <Button
-                        className={'btn btn--icon btn-primary-light'}
+                        className={`btn btn--icon ${
+                            isCelsious
+                                ? 'btn-primary-light text-gray-light'
+                                : 'btn-gray-light text-primary-dark'
+                        }`}
                         onClick={swapTemperatures}
                     >
                         <span className="wgh-700">°F</span>
