@@ -12,7 +12,7 @@ export const getForecastApi = async ({
     const variables = getVariables()
     const forecasts = []
     const data = await fetch(
-        `${variables.API_OPEN_METEO}/${longitude},${latitude}/${startDate}/${endDate}?key=${variables.OPEN_METEO_API_KEY}&iconSet=icons2&unitGroup=${unitGroup}`
+        `${variables.API_OPEN_METEO}/${latitude},${longitude}/${startDate}/${endDate}?key=${variables.OPEN_METEO_API_KEY}&iconSet=icons2&unitGroup=${unitGroup}`
     ).then((res) => res.json())
 
     for (let i = 0; i < data.days.length; i++) {
