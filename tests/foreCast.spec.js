@@ -8,7 +8,7 @@ test.describe('when data loaded in forecast', () => {
     test('should the current hightlights data not be the default values', async ({
         page,
     }) => {
-        await page.goto('http://localhost:3000')
+        await page.goto('/')
 
         const button = await page.getByRole('button', {
             name: /Get current location/,
@@ -44,7 +44,7 @@ test.describe('when data loaded in forecast', () => {
     test('should the upcomming weather not be the default values', async ({
         page,
     }) => {
-        await page.goto('http://localhost:3000')
+        await page.goto('/')
 
         const button = await page.getByRole('button', {
             name: /Get current location/,

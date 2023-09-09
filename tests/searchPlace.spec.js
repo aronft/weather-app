@@ -2,7 +2,7 @@ import { expect, test } from '@playwright/test'
 
 test.describe('When user search for place and select a place for search forecast', () => {
     test('should open sidebar on click button', async ({ page, request }) => {
-        await page.goto('http://localhost:3000')
+        await page.goto('/')
 
         const button = await page.getByRole('button', {
             name: 'Search for places',

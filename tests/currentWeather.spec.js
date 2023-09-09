@@ -1,4 +1,4 @@
-const { test, expect } = require('@playwright/test')
+import { expect, test } from '@playwright/test'
 
 test.use({
     geolocation: { latitude: -12.04318, longitude: -77.02824 },
@@ -6,7 +6,7 @@ test.use({
 })
 
 test('has button for search places', async ({ page }) => {
-    await page.goto('http://localhost:3000')
+    await page.goto('/')
 
     const button = await page.getByRole('button', { name: /search for places/ })
 
@@ -15,7 +15,7 @@ test('has button for search places', async ({ page }) => {
 
 test.describe('when user ask for his location', () => {
     test('Show button for ask location ', async ({ page }) => {
-        await page.goto('http://localhost:3000')
+        await page.goto('/')
 
         const button = await page.getByRole('button', {
             name: /Get current location/,
@@ -28,7 +28,7 @@ test.describe('when user ask for his location', () => {
     test('after get location not show default forecast data', async ({
         page,
     }) => {
-        await page.goto('http://localhost:3000')
+        await page.goto('/')
 
         const button = await page.getByRole('button', {
             name: /Get current location/,
