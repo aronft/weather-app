@@ -1,6 +1,5 @@
 const config = import.meta.env
 
-console.log(config)
 export const getVariables = () => {
     return {
         API_GEODB_CITIES: config.VITE_API_GEODB_CITIES,
