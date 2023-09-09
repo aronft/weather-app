@@ -1,70 +1,52 @@
-# Getting Started with Create React App
+# **1Weather**
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+1Weather is a weather forecasting app that provides you with information about current and future weather conditions for up to 5 days, along with highlighting the day's key highlights.
 
-## Available Scripts
+## Motivation
 
-In the project directory, you can run:
+The motivation behind creating **"1Weather"** was to enhance my frontend skills and re-enter the world of web development.
 
-### `npm start`
+Lastly, to complete the [challenge](https://devchallenges.io/challenges/mM1UIenRhK808W8qmLWv) from [devchallenges.io](https://devchallenges.io/).
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Features
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. **Current Weather Forecast**: Display the current weather based on your current location, including temperature, conditions (sunny, cloudy, rainy, etc.), wind speed, humidity, and atmospheric pressure.
+2. **5-Day Forecast**: Provide a detailed forecast for the next 5 days, including high and low temperatures, weather conditions, and rain probability.
+3. **City Search**: Allow users to search and select other cities to get the weather forecast for those locations.
 
-### `npm test`
+## Technologies Used:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+This project was built in React + Vite in addition to:
 
-### `npm run build`
+-   Zustand
+-   Jest
+-   Playwright
+-   Sass
+-   css modules
+-   prettier
+-   eslint
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Getting Started
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. First, install all the dependencies:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```shell
+pnpm install
+```
 
-### `npm run eject`
+2. Before starting the local server, make sure to review the `.env.example` file and request the necessary API keys for:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+-   [GeoDB Cities](https://rapidapi.com/wirefreethought/api/geodb-cities)
+-   [visualcrossing](https://www.visualcrossing.com/)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+These credentials should go in a `.env` file.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+3. Then, run the development server:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```shell
+pnpm dev
+```
 
-## Learn More
+Open [http://localhost:5173](http://localhost:5173/) with your browser to see the result.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+You can start editing the page by modifying `src/mainApp.jsx`.
