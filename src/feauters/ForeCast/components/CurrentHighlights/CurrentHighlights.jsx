@@ -8,11 +8,14 @@ import styles from './_current_highlights.module.scss'
 
 export const CurrentHighlights = ({ forecast }) => {
     const footerCurrent = (
-        <>
+        <div className="d-flex-center">
             <Button className={'btn btn--icon btn-gray-darken text-gray-light'}>
-                <i className="fa-solid fa-location-arrow"></i>
+                <i className="fa-solid fa-location-arrow"></i>{' '}
             </Button>
-        </>
+            <span style={{ marginLeft: '10px' }} className="text-xs">
+                WSW
+            </span>
+        </div>
     )
 
     return (

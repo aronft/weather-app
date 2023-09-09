@@ -82,11 +82,16 @@
 
     &__location {
         color: variables.$gray-dark;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     &__location svg {
         margin-right: variables.$space-s;
         color: currentColor;
+        width: 24px;
+        height: 24px;
     }
 
     .period {

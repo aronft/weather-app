@@ -4,7 +4,10 @@
 @use './generic/box-sizing';
 
 //elements
+@use 'elements/fonts';
 @use 'elements/body';
 @use 'elements/heading';
 @use 'elements/text';
 @use 'elements/link';
+
+@use 'utils/global';

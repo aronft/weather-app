@@ -16,7 +16,10 @@ export const Card = ({
     return (
         <Tag className={`${styles.card} ${className}`} {...props}>
             <div className={styles.card__title}>
-                <TitleTag id={props['aria-labelledby']} className={'text-s'}>
+                <TitleTag
+                    id={props['aria-labelledby']}
+                    className={'text-s wgh-500'}
+                >
                     {title}
                 </TitleTag>
             </div>

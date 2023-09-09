@@ -1,0 +1,18 @@
+@use '@/sass/settings/variables';
+
+.primary-font {
+    font-family: variables.$main-font;
+}
+
+.secondary-font {
+    font-family: variables.$secondary-font;
+}
+
+
+.d-flex {
+    display: flex;
+}
+
+.items-center {
+    align-items: center;
+}

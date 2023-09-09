@@ -20,24 +20,24 @@ export const ForeCast = () => {
                 <div className={styles.forecast__options}>
                     <Button
                         className={
-                            'btn btn--icon btn-gray-light text-primary-dark wgh-700'
+                            'btn btn--icon btn-gray-light text-primary-dark'
                         }
                         onClick={swapTemperatures}
                     >
-                        °C
+                        <span className="wgh-700">°C</span>
                     </Button>
                     <Button
-                        className={'btn btn--icon btn-primary-light wgh-700'}
+                        className={'btn btn--icon btn-primary-light'}
                         onClick={swapTemperatures}
                     >
-                        °F
+                        <span className="wgh-700">°F</span>
                     </Button>
                 </div>
             </header>
 
             <div className={styles.forecast__body}>
                 <UpcommingWeather wetaherList={forecatsWithoutInitialDates} />
-                <h2 className={'text-m'}>Todays Highlights</h2>
+                <h2 className={'text-ml'}>Today's Highlights</h2>
                 <CurrentHighlights forecast={forecastToday} />
             </div>
             <footer className={styles.forecast__footer}>

@@ -67,7 +67,10 @@ export const CurrentWeather = () => {
                     className={`${styles['current-weather__location']} ${styles['text-gray-dark']} ${styles['wgh-600']}`}
                 >
                     <i className="fa-solid fa-location-dot" color=""></i>
-                    <span aria-label="Current Location">
+                    <span
+                        aria-label="Current Location"
+                        className="wgh-600 text-m"
+                    >
                         {actualPlace?.name}
                     </span>
                 </div>
